@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useAppSelector } from './../hooks/redux';
-import Sidebar from '../components/Sidebar';
-import NoteEditor from '../features/notes/NoteEditor';
-import NoteList from '../features/notes/NoteList';
 import { storage } from '../utils/storage';
-import Onboarding from '../components/Onboarding';
 import '../styles/App.css';
 import '../styles/onboarding.css';
+import {
+  LoadableNoteEditor,
+  LoadableNoteList,
+  LoadableOnboarding,
+  LoadableSidebar,
+} from '../components/Loadablecomponents';
 
 export default function App() {
   const theme = useAppSelector((s) => s.notes.theme);
@@ -21,15 +23,15 @@ export default function App() {
   return (
     <>
       {showOnboarding && (
-        <Onboarding onComplete={() => setShowOnboarding(false)} />
+        <LoadableOnboarding onComplete={() => setShowOnboarding(false)} />
       )}
       <div
         className="app-layout"
         style={{ visibility: showOnboarding ? 'hidden' : 'visible' }}
       >
-        <Sidebar />
-        <NoteList />
-        <NoteEditor />
+        <LoadableSidebar />
+        <LoadableNoteList />
+        <LoadableNoteEditor />
       </div>
     </>
   );
