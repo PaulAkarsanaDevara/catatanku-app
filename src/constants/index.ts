@@ -4,4 +4,6 @@ export const KEYS = {
   THEME: 'catatanku_theme',
   VIEW_MODE: 'catatanku_viewmode',
   SORT_BY: 'catatanku_sortby',
+  ONBOARDING_DONE: 'catatanku_onboarding_done',
+  USER_NAME: 'catatanku_user_name'
 }

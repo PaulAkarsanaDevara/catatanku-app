@@ -42,5 +42,9 @@ export const storage = {
   },
   saveSortBy: (sort: SortBy) => {
     localStorage.setItem(KEYS.SORT_BY, sort);
-  }
+  },
+  isOnboardingDone: (): boolean => localStorage.getItem(KEYS.ONBOARDING_DONE) === 'true',
+  setOnboardingDone: () => { localStorage.setItem(KEYS.ONBOARDING_DONE, 'true') },
+  getUserName: (): string => localStorage.getItem(KEYS.USER_NAME) || '',
+  saveUserName: (name: string) => { localStorage.setItem(KEYS.USER_NAME, name) },
 }
