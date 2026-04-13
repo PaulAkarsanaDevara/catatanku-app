@@ -23,7 +23,7 @@ export interface Category {
 export type SortBy = 'updatedAt' | 'createdAt' | 'title'
 export type ViewMode = 'grid' | 'list'
 export type Theme = 'dark' | 'light'
-
+export type MobilePanel = 'list' | 'editor' | 'sidebar'
 export interface NoteState {
   notes: Note[]
   categories: Category[]
@@ -35,4 +35,6 @@ export interface NoteState {
   viewMode: ViewMode
   theme: Theme
   isEditing: boolean
+  mobilePanel: MobilePanel
+  sidebarOpen: boolean
 }

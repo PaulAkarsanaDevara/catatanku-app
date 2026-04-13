@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import { v4 as uuidv4 } from 'uuid'
-import type { Note,Category, SortBy, ViewMode, NoteColor, NoteState } from '../../types'
+import type { Note,Category, SortBy, ViewMode, NoteColor, NoteState, MobilePanel } from '../../types'
 import { storage } from '../../utils/storage'
 
 const initialState: NoteState = {
@@ -13,7 +13,9 @@ const initialState: NoteState = {
   sortBy: storage.getSortBy(),
   viewMode: storage.getViewMode(),
   theme: storage.getTheme(),
-  isEditing: false
+  isEditing: false,
+  mobilePanel: 'list',
+  sidebarOpen: false
 }
 
 const notesSlice = createSlice({
@@ -149,6 +151,12 @@ const notesSlice = createSlice({
       }
       storage.saveCategories(state.categories)
     },
+    setMobilePanel: (state, action: PayloadAction<MobilePanel>) => {
+      state.mobilePanel = action.payload
+    },
+    setSidebarOpen: (state, action: PayloadAction<boolean>) => {
+      state.sidebarOpen = action.payload
+    },
   }
 })
 
@@ -160,6 +168,7 @@ export const {
   setSearchQuery, setSelectedCategory, setSelectedTag,
   setSortBy, setViewMode, toggleTheme,
   addCategory, deleteCategory,
+  setMobilePanel, setSidebarOpen
 } = notesSlice.actions
 
 export default notesSlice.reducer

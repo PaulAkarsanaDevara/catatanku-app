@@ -65,7 +65,7 @@ export default function Sidebar() {
           <button
             className="icon-btn"
             onClick={() =>
-              dispatch(setViewMode(viewMode === 'grid' ? 'list' : 'list'))
+              dispatch(setViewMode(viewMode === 'grid' ? 'list' : 'grid'))
             }
             title="Toggle view"
           >

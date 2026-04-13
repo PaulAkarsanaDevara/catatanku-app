@@ -138,7 +138,7 @@ export default function Onboarding({ onComplete }: OnboardingProps) {
               <div className="ob-logo-ring" />
             </div>
             <h1 className="ob-headline">
-              Welcome to <span className="ob-accent">Noted.</span>
+              Welcome to <span className="ob-accent">CATATANKU</span>
             </h1>
             <p className="ob-subtext">
               Your personal space to think, plan, and remember — beautifully
