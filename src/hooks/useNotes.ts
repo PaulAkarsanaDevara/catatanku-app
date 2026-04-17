@@ -17,9 +17,19 @@ export const useFilteredNotes = (): Note[] => {
       )
     }
 
-    if (selectedCategory) {
-      filtered = filtered.filter(n => n.category === selectedCategory)
-    }
+    // if (selectedCategory) {
+    //   filtered = filtered.filter(n => n.category === selectedCategory)
+    // }
+
+    if(selectedCategory === '__pinned__') {
+        filtered = filtered.filter(n => n.isPinned)
+    } else if(selectedCategory === '__favorites__') {
+      filtered = filtered.filter(n => n.isFavorite)
+    } else if(selectedCategory === '__trash__') {
+      filtered = []
+    } else if (selectedCategory) {
+     filtered = filtered.filter(n => n.category === selectedCategory)
+   }
 
     if (selectedTag) {
       filtered = filtered.filter(n => n.tags.includes(selectedTag))

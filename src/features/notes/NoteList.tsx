@@ -10,12 +10,12 @@ export default function NoteList() {
   const notes = useFilteredNotes();
 
   // Special filtered views
-  const displayNotes =
-    selectedCategory === '__pinned__'
-      ? notes.filter((n) => n.isPinned)
-      : selectedCategory === '__favorites__'
-        ? notes.filter((n) => n.isFavorite)
-        : notes;
+  // const displayNotes =
+  //   selectedCategory === '__pinned__'
+  //     ? notes.filter((n) => n.isPinned)
+  //     : selectedCategory === '__favorites__'
+  //       ? notes.filter((n) => n.isFavorite)
+  //       : notes;
 
   const getTitle = () => {
     if (selectedCategory === '__pinned__') return 'Pinned';
@@ -28,10 +28,10 @@ export default function NoteList() {
     <section className="note-list-panel">
       <div className="list-header">
         <span className="list-title">{getTitle()}</span>
-        <span className="list-count">{displayNotes.length} notes</span>
+        <span className="list-count">{notes.length} notes</span>
       </div>
 
-      {displayNotes.length === 0 ? (
+      {notes.length === 0 ? (
         <div className="empty-state">
           <StickyNote size={40} className="empty-icon" />
           <p>No notes yet</p>
@@ -44,7 +44,7 @@ export default function NoteList() {
         </div>
       ) : (
         <div className={`notes-${viewMode}`}>
-          {displayNotes.map((note) => (
+          {notes.map((note) => (
             <NoteCard key={note.id} note={note} viewMode={viewMode} />
           ))}
         </div>
